@@ -8,7 +8,6 @@ const Locations = () => {
   const { location: locationParam } = useParams();
   const [filterListing, setFilterListing] = useState([]);
   const { locations, isLoading, setIsLoading } = useContext(AppContext);
-  const imageURL = import.meta.env.VITE_API_BASE_URL;
 
   const applyFilter = () => {
     if (locationParam) {
@@ -63,7 +62,7 @@ const Locations = () => {
                   >
                     <div className="flex w-[60vw]">
                       <img
-                        src={`${imageURL}/uploads/${location.images[0]}`}
+                        src={`${location.images[0]}`}
                         alt=""
                         className="w-35 h-35 rounded object-cover "
                       />

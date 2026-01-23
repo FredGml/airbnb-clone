@@ -1,7 +1,6 @@
 import listingModel from "../models/listingSchema.js";
 import userModel from "../models/userSchema.js";
 
-/* ================= CREATE LISTING ================= */
 export const createListing = async (req, res) => {
   try {
     const hostId = req.user.id;
@@ -75,7 +74,7 @@ export const createListing = async (req, res) => {
       });
     }
 
-    const imagePaths = req.files.map((file) => file.filename);
+    const imagePaths = req.files.map((file) => file.path);
 
     const newListing = await listingModel.create({
       host: host._id,
@@ -115,7 +114,6 @@ export const createListing = async (req, res) => {
   }
 };
 
-/* ================= GET ALL LISTINGS ================= */
 export const getListings = async (req, res) => {
   try {
     const listings = await listingModel.find();
@@ -132,7 +130,6 @@ export const getListings = async (req, res) => {
   }
 };
 
-/* ================= UPDATE LISTING ================= */
 export const updateListing = async (req, res) => {
   try {
     const hostId = req.user.id;
@@ -176,7 +173,7 @@ export const updateListing = async (req, res) => {
     }
 
     if (req.files && req.files.length > 0) {
-      updateData.images = req.files.map((file) => file.filename);
+      updateData.images = req.files.map((file) => file.path);
     }
 
     await listingModel.updateOne({ _id: listingId }, { $set: updateData });
@@ -197,7 +194,6 @@ export const updateListing = async (req, res) => {
   }
 };
 
-/* ================= GET SINGLE LISTING ================= */
 export const getListing = async (req, res) => {
   try {
     const listing = await listingModel.findById(req.params.id);
@@ -221,7 +217,6 @@ export const getListing = async (req, res) => {
   }
 };
 
-/* ================= DELETE LISTING ================= */
 export const deleteListing = async (req, res) => {
   try {
     const hostId = req.user.id;

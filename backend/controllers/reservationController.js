@@ -2,7 +2,6 @@ import listingModel from "../models/listingSchema.js";
 import reservationModel from "../models/reservationSchema.js";
 import userModel from "../models/userSchema.js";
 
-/* ================= CREATE RESERVATION ================= */
 export const createReservation = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -54,7 +53,6 @@ export const createReservation = async (req, res) => {
   }
 };
 
-/* ================= USER RESERVATIONS ================= */
 export const getUserReservations = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -81,7 +79,6 @@ export const getUserReservations = async (req, res) => {
   }
 };
 
-/* ================= HOST CLIENT RESERVATIONS ================= */
 export const getClientsReservations = async (req, res) => {
   try {
     const hostId = req.user.id;
@@ -110,7 +107,6 @@ export const getClientsReservations = async (req, res) => {
   }
 };
 
-/* ================= DELETE USER RESERVATION ================= */
 export const deleteUserReservation = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -154,7 +150,6 @@ export const deleteUserReservation = async (req, res) => {
   }
 };
 
-/* ================= DELETE CLIENT RESERVATION (HOST) ================= */
 export const deleteClientsReservation = async (req, res) => {
   try {
     const hostId = req.user.id;
