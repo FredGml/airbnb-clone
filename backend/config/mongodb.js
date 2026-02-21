@@ -8,7 +8,7 @@ const connectDB = async() => {
             await mongoose.connect(mongouri);
             console.log('Database connected successfully')
         } else{
-            console.log('Connecction string not found')
+            console.log('Connection string not found')
         }
     } catch (error) {
         console.error("Could not connect to database: ", error.message)
